@@ -45,7 +45,7 @@ def get_args_parser():
     ## algonauts params
     parser.add_argument('--subj', default=1, type=int)  # 5 is a good test sub
     parser.add_argument('--run', default=1, type=int)  # 5 is a good test sub
-    parser.add_argument('--data_dir', default='../algonauts_2023_challenge_data/', type=str)
+    parser.add_argument('--data_dir', default='/media/data1/algonauts_2023_challenge_data/', type=str)
     parser.add_argument('--parent_submission_dir', default='../algonauts_2023_challenge_submission/', type=str)
     
     parser.add_argument('--saved_feats', default=None, type=str) #'dinov2q'
