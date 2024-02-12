@@ -563,6 +563,9 @@ def main(args):
 
 #         wandb.log({"val_mean_corr": val_mean_corr})
 
+        print('saving data')
+
+
         if args.output_dir:
             # update best validation acc and save best model to output dir
             if (val_mean_corr > args.val_mean_corr):  
@@ -599,6 +602,9 @@ def main(args):
                 
                 np.save(args.save_dir+'/lh_pred_test.npy', lh_fmri_test_pred)
                 np.save(args.save_dir+'/rh_pred_test.npy', rh_fmri_test_pred)
+
+
+    print('process complete')
                 
 #                 np.save(test_save_dir+'/lh_pred_test.npy', lh_fmri_test_pred)
 #                 np.save(test_save_dir+'/rh_pred_test.npy', rh_fmri_test_pred)
