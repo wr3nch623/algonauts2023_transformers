@@ -461,7 +461,7 @@ for subj in [subject_ind]: # [1]: #
                 plt.ylabel('Mean Pearson\'s $r$')
                 plt.legend(frameon=True, loc=1);
                 #plt.show()
-                plt.savefig('./results/images')
+                plt.savefig('./results/images/image.png')
                     
                     
             if verbose:
