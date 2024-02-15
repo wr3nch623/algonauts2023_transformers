@@ -38,7 +38,7 @@ lh_corr = []
 rh_corr = []
 
 verbose = 1
-plot_figs = 0
+plot_figs = 1
 
 data_dir = '../../algonauts_2023_challenge_data/'
 
@@ -460,7 +460,8 @@ for subj in [subject_ind]: # [1]: #
                 plt.xticks(ticks=x, labels=roi_names, rotation=60)
                 plt.ylabel('Mean Pearson\'s $r$')
                 plt.legend(frameon=True, loc=1);
-                plt.show()
+                #plt.show()
+                plt.savefig('./results/images')
                     
                     
             if verbose:
