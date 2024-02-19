@@ -659,7 +659,7 @@ class SetCriterion(nn.Module):
         
 #         target_masks = target_masks.view(src_masks.shape)
         
-        loss_recon = nn.MSELoss()(src_masks, target_masks)
+        loss_recon = nn.L1Loss()(src_masks, target_masks)
         losses = {'loss_recon': loss_recon}
 
         log=False
@@ -707,8 +707,8 @@ class SetCriterion(nn.Module):
                 targets['lh_f'] = (1*(lh_rois>0)) * targets['lh_f']
                 targets['rh_f'] = (1*(rh_rois>0)) * targets['rh_f']
         
-        loss_lh = nn.MSELoss()(outputs['lh_f_pred'], targets['lh_f'])
-        loss_rh = nn.MSELoss()(outputs['rh_f_pred'], targets['rh_f'])
+        loss_lh = nn.L1Loss()(outputs['lh_f_pred'], targets['lh_f'])
+        loss_rh = nn.L1Loss()(outputs['rh_f_pred'], targets['rh_f'])
         losses = {'loss_mse_fmri': loss_lh+loss_rh}
 
         log=False
