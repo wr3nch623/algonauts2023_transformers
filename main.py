@@ -280,7 +280,7 @@ def main(args):
     #["early", "midventral", "midlateral", "midparietal", "ventral", "lateral", "parietal"]:
 
 
-    print('args : ' + args)
+    print(args)
     model, criterion = build_model(args)
     model.to(device)
 
