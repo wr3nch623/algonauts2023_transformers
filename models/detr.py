@@ -659,7 +659,7 @@ class SetCriterion(nn.Module):
         
 #         target_masks = target_masks.view(src_masks.shape)
         
-        loss_recon = torch.corrcoef()(src_masks, target_masks)
+        loss_recon = torch.corrcoef(src_masks)
         losses = {'loss_recon': loss_recon.mean()}
 
         log=False
@@ -707,8 +707,8 @@ class SetCriterion(nn.Module):
                 targets['lh_f'] = (1*(lh_rois>0)) * targets['lh_f']
                 targets['rh_f'] = (1*(rh_rois>0)) * targets['rh_f']
         
-        loss_lh = torch.corrcoef(outputs['lh_f_pred'], targets['lh_f'])
-        loss_rh = torch.corrcoef(outputs['rh_f_pred'], targets['rh_f'])
+        loss_lh = torch.corrcoef(outputs['lh_f_pred'])
+        loss_rh = torch.corrcoef(outputs['rh_f_pred'])
         losses = {'loss_mse_fmri': loss_lh.mean()+loss_rh.mean()}
 
         log=False
