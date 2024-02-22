@@ -660,7 +660,7 @@ class SetCriterion(nn.Module):
 #         target_masks = target_masks.view(src_masks.shape)
         
         loss_recon = torch.corrcoef()(src_masks, target_masks)
-        losses = {'loss_recon': loss_recon}
+        losses = {'loss_recon': loss_recon.mean()}
 
         log=False
         if log:
@@ -709,11 +709,11 @@ class SetCriterion(nn.Module):
         
         loss_lh = torch.corrcoef()(outputs['lh_f_pred'], targets['lh_f'])
         loss_rh = torch.corrcoef()(outputs['rh_f_pred'], targets['rh_f'])
-        losses = {'loss_mse_fmri': loss_lh+loss_rh}
+        losses = {'loss_mse_fmri': loss_lh.mean()+loss_rh.mean()}
 
         log=False
         if log:
-            losses['loss_mse_fmri'] = loss_lh+loss_rh
+            losses['loss_mse_fmri'] = loss_lh.mean()+loss_rh.mean()
         return losses
     
     def _get_src_permutation_idx(self, indices):
