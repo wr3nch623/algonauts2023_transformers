@@ -155,7 +155,7 @@ def get_args_parser():
     parser.add_argument('--eval', action='store_true')
     parser.add_argument('--num_workers', default=2, type=int)
 
-    parser.add_argument('--save_model', default=1, type=int) 
+    parser.add_argument('--save_model', default=0, type=int) 
 
     # distributed training parameters
     parser.add_argument('--world_size', default=1, type=int,
