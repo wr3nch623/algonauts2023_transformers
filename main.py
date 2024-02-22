@@ -45,7 +45,7 @@ def get_args_parser():
     ## algonauts params
     parser.add_argument('--subj', default=1, type=int)  # 5 is a good test sub
     parser.add_argument('--run', default=1, type=int)  # 5 is a good test sub
-    parser.add_argument('--data_dir', default='/media/data1/algonauts_2023_challenge_data/', type=str)
+    parser.add_argument('--data_dir', default='../algonauts_2023_challenge_data/', type=str)
     parser.add_argument('--parent_submission_dir', default='../algonauts_2023_challenge_submission/', type=str)
     
     parser.add_argument('--saved_feats', default=None, type=str) #'dinov2q'
@@ -229,7 +229,7 @@ def main(args):
 
         
     #readout_res_options = ['visuals', 'bodies', 'faces', 'places', 'words', 'streams', 'streams_inc', 'hemis']
-           
+        
     if args.readout_res == 'visuals':
         args.rois_ind = 0
         args.num_queries = 16   # 2*len(roi_name_maps[args.rois_ind])
@@ -260,6 +260,7 @@ def main(args):
     
     args.roi_nums = len(roi_name_maps[args.rois_ind])
 
+    
     lh_rois = torch.tensor(lh_challenge_rois[args.rois_ind]).to(args.device)  # -1
     rh_rois = torch.tensor(rh_challenge_rois[args.rois_ind]).to(args.device)  # -1
 
@@ -279,7 +280,7 @@ def main(args):
     #["early", "midventral", "midlateral", "midparietal", "ventral", "lateral", "parietal"]:
 
 
-    print(args)
+    print('args : ' + args)
     model, criterion = build_model(args)
     model.to(device)
 

@@ -38,9 +38,9 @@ lh_corr = []
 rh_corr = []
 
 verbose = 1
-plot_figs = 0
+plot_figs = 1
 
-data_dir = '../../algonauts_2023_challenge_data/'
+data_dir = './algonauts_2023_challenge_data/'
 
 save_npy = 1
 num_fmri_pcs = 70
